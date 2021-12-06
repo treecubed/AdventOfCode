@@ -36,7 +36,7 @@ def puzzle1():
 	print(f'Puzzle 1 solution: {solution}')
 
 def count_bit(list, bit):
-
+	pass
 
 def puzzle2():
 	pos, depth, aim = 0, 0, 0
