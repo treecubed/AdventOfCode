@@ -35,27 +35,46 @@ def puzzle1():
 
 	print(f'Puzzle 1 solution: {solution}')
 
-def count_bit(list, bit):
-	pass
+def count_bit(in_list, index, bit):
+	count = 0
+	for item in in_list:
+		if item[index] == bit:
+			count +=1
+	return count
+
+def trim_list(in_list, index, bit):
+	ret_list = []
+	for item in in_list:
+		if item[index] == bit:
+			ret_list.append(item)
+	return ret_list
 
 def puzzle2():
-	pos, depth, aim = 0, 0, 0
+	new_lines = lines.copy()
+	for i in range(len(lines[0])):
+		if len(new_lines) > 1:
+			if count_bit(new_lines, i, '1') >= count_bit(new_lines, i, '0'):
+				new_lines = trim_list(new_lines, i, '1')
+			else:
+				new_lines = trim_list(new_lines, i, '0')
+		else:
+			break
+	og_rating = int(new_lines[0], 2)
 
-	for i in range(len(lines)):
-		direction = lines[i][0]
-		distance = lines[i][1]
-		match direction:
-			case 'forward':
-				pos += distance
-				depth += aim * distance
-			case 'up':
-				aim -= distance
-			case 'down':
-				aim += distance
+	new_lines = lines.copy()
+	for i in range(len(lines[0])):
+		if len(new_lines) > 1:
+			if count_bit(new_lines, i, '0') <= count_bit(new_lines, i, '1'):
+				new_lines = trim_list(new_lines, i, '0')
+			else:
+				new_lines = trim_list(new_lines, i, '1')
+		else:
+			break
+	cs_rating = int(new_lines[0], 2)
 
-	solution = pos * depth
+	solution = og_rating * cs_rating
 
 	print(f'Puzzle 2 solution: {solution}')
 
 puzzle1()
-# puzzle2()
+puzzle2()
