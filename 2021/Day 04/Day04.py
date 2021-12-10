@@ -154,5 +154,5 @@ def puzzle2():
 	print(f'Puzzle 2 solution: {solution}')
 
 process_lines()
-# puzzle1()
+puzzle1()
 puzzle2()
