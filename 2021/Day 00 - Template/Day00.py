@@ -4,7 +4,7 @@ def process_line(line):
 
 with open('input.txt') as file:
 	lines = file.readlines()
-	lines = [process_line(line) for line in lines]
+	data = [process_line(line) for line in lines]
 
 def puzzle1():
 	

@@ -5,7 +5,7 @@ def process_line(line):
 
 with open('input.txt') as file:
 	lines = file.readlines()
-	lines = [process_line(line) for line in lines]
+	data = [process_line(line) for line in lines]
 
 def str_sub(a, b):
 	for char in b:
@@ -60,7 +60,7 @@ def get_decoder(decode_lst):
 
 def puzzle1():
 	count = 0
-	for line in lines:
+	for line in data:
 		for digit in line[1]:
 			if len(digit) in [2, 3, 4, 7]:
 				count += 1
@@ -71,7 +71,7 @@ def puzzle1():
 
 def puzzle2():
 	lst = []
-	for line in lines:
+	for line in data:
 		code = ''
 		decoder = get_decoder(line[0])
 		for char in line[1]:
