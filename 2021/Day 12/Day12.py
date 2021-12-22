@@ -6,6 +6,10 @@ with open('input.txt') as file:
 	data = file.readlines()
 	data = [process_line(line) for line in data]
 
+# if large letter can go to any child cave
+# small letter can only go to connected large letter or end
+
+
 def puzzle1():
 	
 	
